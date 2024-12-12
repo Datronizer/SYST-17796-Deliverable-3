@@ -6,18 +6,14 @@ package ca.sheridancollege.project;
 
 /**
  *
- * @author Chien
+ * @author datronizer
  */
-public class Blackjack extends Game {
-    public Blackjack() {
-        super("Blackjack");
+public class Deck extends GroupOfCards {
+    public Deck() {
+        super(52 * 6);
     }
     
-    @Override
-    public void declareWinner() {
-        
+    public Card dealOneCard() {
+        return this.getCards().removeFirst();
     }
-    
-    @Override
-    public void play() { }
 }

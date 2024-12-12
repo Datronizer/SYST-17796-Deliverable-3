@@ -6,18 +6,10 @@ package ca.sheridancollege.project;
 
 /**
  *
- * @author Chien
+ * @author datronizer
  */
-public class Blackjack extends Game {
-    public Blackjack() {
-        super("Blackjack");
+public class GameView {
+    public String drawPlayerHand(Hand hand, int score) {
+        return "Hand: " + hand.toString() + " Score: " + score;
     }
-    
-    @Override
-    public void declareWinner() {
-        
-    }
-    
-    @Override
-    public void play() { }
 }
