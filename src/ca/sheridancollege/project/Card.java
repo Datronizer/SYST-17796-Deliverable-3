@@ -11,9 +11,35 @@ package ca.sheridancollege.project;
  * code should remember to add themselves as a modifier.
  *
  * @author dancye
+ * @author Sienna Truong
+ * @author Jareb Mathew
  */
 public abstract class Card {
+
     //default modifier for child classes
+    private String type; // Suit for normal cards, Colors for Uno
+    private String faceValue;
+
+    public Card(String type, String value) {
+        this.type = type;
+        this.faceValue = value;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getFaceValue() {
+        return faceValue;
+    }
+
+    public void setFaceValue(String faceValue) {
+        this.faceValue = faceValue;
+    }
 
     /**
      * Students should implement this method for their specific children classes

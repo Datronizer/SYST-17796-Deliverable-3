@@ -8,47 +8,44 @@ package ca.sheridancollege.project;
  *
  * @author datronizer
  */
-public class BlackjackCard {
-    //default modifier for child classes
-    private String suit;
-    private String rank;
+public class BlackjackCard extends Card {
+
     private int value;
 
-    public Card(String suit, String rank, int value) {
-        this.suit = suit;
-        this.rank = rank;
-        this.value = value;
-    }
-    
-    public String getSuit() {
-        return suit;
+    public BlackjackCard(String suit, String rank) {
+        super(suit, rank);
+        this.value = this.getValue(rank);
     }
 
-    public void setSuit(String suit) {
-        this.suit = suit;
+    public static BlackjackCard from(Card card) {
+        return new BlackjackCard(
+                card.getType(),
+                card.getFaceValue()
+        );
     }
 
-    public String getRank() {
-        return rank;
-    }
-
-    public void setRank(String rank) {
-        this.rank = rank;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
+    public static int getValue(String rank) {
+        switch (rank) {
+            case "King":
+                return 10;
+            case "Queen":
+                return 10;
+            case "Jack":
+                return 10;
+            case "Ace":
+                return 11;
+            default:
+                return Integer.parseInt(rank);
+        }
     }
 
     /**
-     * Students should implement this method for their specific children classes
-     *
-     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
+     * * @return a String representation of a Blackjack card, including its
+     * rank and suit
      */
     @Override
-    public abstract String toString();
+    public String toString() {
+        return this.getFaceValue() + " of " + this.getType()
+                + "(" + this.getValue(getFaceValue()) + ")";
+    }
 }

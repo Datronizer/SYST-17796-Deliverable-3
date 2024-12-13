@@ -53,4 +53,21 @@ public class GroupOfCards {
         this.size = size;
     }
 
+    public void addCard(Card card) {
+        if (cards.size() < size) {
+            cards.add(card);
+        } else {
+            System.out.println("Group full. Cannot add more cards.");
+        }
+    }
+
+    public Card dealCard() {
+        if (!cards.isEmpty()) {
+            return cards.remove(0);
+        } else {
+            System.out.println("No cards left to deal.");
+            return null;
+        }
+    }
+
 }//end class
