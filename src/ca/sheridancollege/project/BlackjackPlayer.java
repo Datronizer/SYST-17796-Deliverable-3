@@ -10,24 +10,50 @@ package ca.sheridancollege.project;
  */
 public class BlackjackPlayer extends Player {
 
-    private BlackjackHand hand;
+    private BlackjackHand hand = new BlackjackHand();
+    private PlayerAction lastAction = PlayerAction.Hit;
     private int score;
 
     public BlackjackPlayer(String name) {
         super(name);
     }
-    
+
     public BlackjackHand getHand() {
         return this.hand;
     }
-    
+
     public int getScore() {
         return this.hand.gethandValue();
     }
 
+    public PlayerAction getLastAction() {
+        return this.lastAction;
+    }
+    
+    public void clearLastAction() {
+        this.lastAction = PlayerAction.Hit;
+    }
+
+    public void hit(BlackjackCard card) {
+        this.lastAction = PlayerAction.Hit;
+        this.hand.hit(card);
+    }
+    
+    public void stand() {
+        this.lastAction = PlayerAction.Stand;
+    }
+    
+    public void lose() {
+        this.lastAction = PlayerAction.Lose;
+    }
+    
+    public void win() {
+        this.lastAction = PlayerAction.Win;
+    }
+
     @Override
     public void play() {
-        
+
     }
 
 //    /**

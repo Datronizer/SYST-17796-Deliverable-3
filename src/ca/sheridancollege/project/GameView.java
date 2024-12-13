@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class GameView {
 
-    Scanner scanner;
+    Scanner scanner = new Scanner(System.in);
 
     public void drawPlayerHand(BlackjackHand hand, int score) {
         String s = "Hand: " + hand.toString() + " Score: " + score;
@@ -22,15 +22,15 @@ public class GameView {
 
     public int promptPlayerCount() {
         System.out.println("Welcome to Blackjack!");
-        System.out.print("Please enter the number of players: (1-6)");
+        System.out.print("Please enter the number of players (1-6): ");
         int numberOfPlayers = scanner.nextInt();
         return numberOfPlayers;
     }
     
     public boolean promptReplay() {
-        System.out.println("Do you want to play again? (yes/no)");
+        System.out.print("Do you want to play again? (yes/no): ");
         String playAgain = scanner.next();
-        return !playAgain.equalsIgnoreCase("yes");
+        return playAgain.equalsIgnoreCase("yes");
     }
     
     /**
